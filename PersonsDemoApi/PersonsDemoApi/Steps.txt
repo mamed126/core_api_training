@@ -1,0 +1,1 @@
+﻿1.change properties/launchSettings.json ("applicationUrl" and "launchBrowser": false)
