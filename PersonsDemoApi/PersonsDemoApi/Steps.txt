@@ -1,6 +1,0 @@
-﻿1.change properties/launchSettings.json ("applicationUrl" and "launchBrowser": false);
-2.Add EXtension methods for configurations;
-3.change configureServices and configure methods;
-4.add nlog.config for logger;
-5.change startup constructor for logger config;
-6.chang configure service add line for logger service;

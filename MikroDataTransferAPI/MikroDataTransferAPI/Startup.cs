@@ -1,40 +1,33 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using MikroDataTransferAPI.Extensions;
 using NLog;
-using PersonsDemoApi.Extensions;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace PersonsDemoApi
+namespace MikroDataTransferAPI
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
-            //add next line
             LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services._ConfigureCors();
-            services._ConfigureIISIntegration();
-            services._ConfigureLoggerService();
-
+            services.ConfigureCors();
+            services.ConfigureIISIntegration();
+            services.ConfigureLoggerService();
+            services.ConfigureRepositoryWrapper(Configuration);
+            services.ConfigureAutentification(Configuration);
             services.AddControllers();
         }
 
@@ -48,14 +41,19 @@ namespace PersonsDemoApi
 
             app.UseHttpsRedirection();
 
-            //add next two lines
+            //
             app.UseStaticFiles();
-            app.UseForwardedHeaders(new ForwardedHeadersOptions { ForwardedHeaders = ForwardedHeaders.All }); 
+
+            app.UseCors("CorsPolicy");
+            app.UseAuthentication();
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.All
+            });
+            //
 
             app.UseRouting();
-
-            //add next line
-            app.UseCors();
 
             app.UseAuthorization();
 

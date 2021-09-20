@@ -1,4 +1,4 @@
-﻿namespace Contracts
+﻿namespace MikroDataTransferAPI.Contracts
 {
     public interface ILoggerManager
     {

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikroDataTransferAPI", "MikroDataTransferAPI\MikroDataTransferAPI.csproj", "{4BF7002D-1041-4A4A-B25A-CBD6976C3EA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BF7002D-1041-4A4A-B25A-CBD6976C3EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BF7002D-1041-4A4A-B25A-CBD6976C3EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BF7002D-1041-4A4A-B25A-CBD6976C3EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BF7002D-1041-4A4A-B25A-CBD6976C3EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA40E87B-15E4-4029-8539-FB1673C73780}
+	EndGlobalSection
+EndGlobal
