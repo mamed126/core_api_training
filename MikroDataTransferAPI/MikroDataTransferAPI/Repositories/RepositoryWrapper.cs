@@ -34,6 +34,17 @@ namespace MikroDataTransferAPI.Repositories
             }
         }
 
-       
+        IProductRepository2 _productRepository2 = null;
+        public IProductRepository2 ProductRepo2
+        {
+            get
+            {
+                if (_productRepository2 == null)
+                    _productRepository2 = new ProductRepository2(_connString);
+                return _productRepository2;
+            }
+        }
+
+
     }
 }

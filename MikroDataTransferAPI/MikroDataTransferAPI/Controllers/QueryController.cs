@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MikroDataTransferAPI.Contracts;
 using MikroDataTransferAPI.Dto;
+using MikroDataTransferAPI.Model;
 using System;
 
 namespace MikroDataTransferAPI.Controllers
@@ -17,6 +18,15 @@ namespace MikroDataTransferAPI.Controllers
             _logger = logger;
             _repoWrapper = repoWrapper;
         }
+       
+        [HttpGet("getproducts")]
+        public IActionResult GetProducts([FromQuery] PaginationModel m)
+        {
+            var data = _repoWrapper.ProductRepo2.GetProducts(m);
+            //_logger.LogInfo($"Returned {owners.Count()} owners from database.");
+            return Ok(data);
+        }
+
         [Authorize]
         [HttpGet("getProductInfo")]
         public IActionResult GetProductInfo([FromBody]ProductInfoGetActParam p)
