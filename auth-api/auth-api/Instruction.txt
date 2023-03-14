@@ -1,0 +1,3 @@
+﻿1.add interface for token service to abstraction folder;
+2.add token service concrete class to services folder;
+3.add transient service to program.cs 
